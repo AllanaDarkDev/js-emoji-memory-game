@@ -15,17 +15,74 @@ body {
     gap: 30px;
     background-image: url("../images/Bloody_Background.PNG");
     background-size: cover;
+    background-repeat: round;
     color: black;
     padding: 40px 60px;
+    box-shadow: 0px 0px 109px -26px #ffffffaf;
 }
 
-.gradient-text {
+h2 {
+    font-size: 3em;
+    text-transform: uppercase;
+
+    letter-spacing: 0.1em;
     background-image: linear-gradient(
         white 0%,
         rgb(202, 202, 202) 30%, 
         rgb(168, 168, 168) 70%,
         rgb(145, 145, 145) 100%
-    );
+        );
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.reset {
+    padding: 15px 20px;
+    width: 100%;
+    color: #fff;
+    background-image: radial-gradient(
+        #5c5c5c 0%,
+        #414141 20%,
+        #2b2b2b 30%,
+        black 100%
+        );
+    border: none;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.5s;
+}
+
+.reset:focus {
+    background: rgb(193,0,0);
+    background: radial-gradient(
+    circle, 
+    rgba(193,0,0,1) 0%,
+    rgba(133,8,8,1) 35%, 
+    rgba(60,0,0,1) 100%
+    );
+    border-radius: 10px;
+}
+
+.game {
+    display: flex;
+    width: 430px;
+    height: 430px;
+    flex-wrap: wrap;
+    gap: 10px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+.item {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
 }
