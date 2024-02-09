@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: linear-gradient(to right,#434343 0%, black 100%);
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-image: url("../images/Bloody_Background.PNG");
+    background-size: cover;
+    color: black;
+    padding: 40px 60px;
+}
+
+.gradient-text {
+    background-image: linear-gradient(
+        white 0%,
+        rgb(202, 202, 202) 30%, 
+        rgb(168, 168, 168) 70%,
+        rgb(145, 145, 145) 100%
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
