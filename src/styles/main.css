@@ -4,6 +4,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background-image: linear-gradient(to right,#434343 0%, black 100%);
+    user-select: none;
 }
 
 .container {
@@ -85,4 +86,45 @@ h2 {
     align-items: center;
     justify-content: center;
     background-color: #fff;
+
+    font-size: 3em;
+    animation: rotateItem 0.25s;
+}
+
+@keyframes rotateItem {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(180deg);
+    }
+}
+
+@keyframes rotateItemBack {
+    0% {
+        transform: rotateY(180deg);
+    }
+    100% {
+        transform: rotateY(0deg);
+    }
+}
+
+.item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.85;
+    background-color: #250000;
+    transition: 0.25s;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+}
+
+.item.boxOpen{
+    animation: rotateItemBack 0.25s;
+}
+
+.boxOpen::after, .boxMacth::after {
+    animation: rotateItem 0.25s;
+    opacity: 0%;
 }
