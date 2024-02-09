@@ -51,7 +51,6 @@ function checkMatch() {
   openCards = [];
   if (document.querySelectorAll(".boxMatch").length === emojis.length) {
     playSound("victory")
-    alert("VITORIA!")
   }
 }
 
