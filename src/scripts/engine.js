@@ -1,10 +1,10 @@
 const emojis = [
   "🦇",
   "🦇",
-  "𒅒",
-  "𒅒",
-  "ཐི❤︎ཋྀ",
-  "ཐི❤︎ཋྀ",
+  "💀",
+  "💀",
+  "🕷",
+  "🕷",
   "⚰️",
   "⚰️",
   "🩸",
@@ -31,6 +31,7 @@ for(let i = 0; i < emojis.length; i++) {
 
 function handleClick() {
   if (openCards.length < 2) {
+    playSound("Card-flip-sound-effect")
     this.classList.add("boxOpen");
     openCards.push(this);
   }
@@ -40,5 +41,22 @@ function handleClick() {
 }
 
 function checkMatch() {
-
+  if (openCards[0].innerHTML === openCards[1].innerHTML) {
+    openCards[0].classList.add("boxMatch")
+    openCards[1].classList.add("boxMatch")
+  } else {
+    openCards[0].classList.remove("boxOpen")
+    openCards[1].classList.remove("boxOpen")
+  }
+  openCards = [];
+  if (document.querySelectorAll(".boxMatch").length === emojis.length) {
+    playSound("victory")
+    alert("VITORIA!")
+  }
 }
+
+function playSound(soundName){
+  let audio = new Audio(`./src/sounds/${soundName}.mp3`)
+  audio.play();
+}
+

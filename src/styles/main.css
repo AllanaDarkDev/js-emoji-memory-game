@@ -3,7 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: linear-gradient(to right,#434343 0%, black 100%);
+    background-image: radial-gradient(#434343 0%, black 100%);
     user-select: none;
 }
 
@@ -113,7 +113,6 @@ h2 {
     content: "";
     position: absolute;
     inset: 0;
-    opacity: 0.85;
     background-color: #250000;
     transition: 0.25s;
     transform: rotateY(0deg);
@@ -124,7 +123,7 @@ h2 {
     animation: rotateItemBack 0.25s;
 }
 
-.boxOpen::after, .boxMacth::after {
+.boxOpen::after, .boxMatch::after {
     animation: rotateItem 0.25s;
     opacity: 0%;
 }
