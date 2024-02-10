@@ -1,27 +1,47 @@
 const emojis = [
-  "🦇",
-  "🦇",
+  "❤️",
+  "❤️",
   "💀",
   "💀",
-  "🕷",
-  "🕷",
-  "⚰️",
-  "⚰️",
-  "🩸",
-  "🩸",
-  "🧛🏻",
-  "🧛🏻",
-  "🕸️",
-  "🕸️",
-  "💉",
-  "💉",
+  "✨",
+  "✨",
+  "🌻",
+  "🌻",
+  "🕷️",
+  "🕷️",
+  "🍝",
+  "🍝",
+  "🧪",
+  "🧪",
+  "❄️",
+  "❄️",
 ];
 
 let openCards = [];
 
-let shuffleEmojis = emojis.sort(() => (Math.random() > 0.5) ? 2: -1)
+let battleMusic = new Audio(`src/sounds/battle.mp3`);
+let isPlayingBattleMusic = false;
 
-for(let i = 0; i < emojis.length; i++) {
+function playBattleMusic() {
+  if (!isPlayingBattleMusic) {
+    battleMusic.currentTime = 0;
+    battleMusic.loop = true;
+    battleMusic.play();
+    isPlayingBattleMusic = true;
+  }
+}
+
+function stopBattleMusic() {
+  if (isPlayingBattleMusic) {
+    battleMusic.pause();
+    battleMusic.loop = false;
+    isPlayingBattleMusic = false;
+  }
+}
+
+let shuffleEmojis = emojis.sort(() => (Math.random() > 0.5) ? 2 : -1)
+
+for (let i = 0; i < emojis.length; i++) {
   let box = document.createElement("div");
   box.className = "item";
   box.innerHTML = shuffleEmojis[i];
@@ -31,12 +51,20 @@ for(let i = 0; i < emojis.length; i++) {
 
 function handleClick() {
   if (openCards.length < 2) {
-    playSound("Card-flip-sound-effect")
     this.classList.add("boxOpen");
     openCards.push(this);
+    if (openCards.length === 1) {
+      playBattleMusic();
+    }
   }
   if (openCards.length == 2) {
-    setTimeout(checkMatch, 500);
+    setTimeout(() => {
+      checkMatch();
+      if (document.querySelectorAll(".boxMatch").length === emojis.length) {
+        playVictorySound();
+        stopBattleMusic();
+      }
+    }, 500);
   }
 }
 
@@ -49,13 +77,9 @@ function checkMatch() {
     openCards[1].classList.remove("boxOpen")
   }
   openCards = [];
-  if (document.querySelectorAll(".boxMatch").length === emojis.length) {
-    playSound("victory")
-  }
 }
 
-function playSound(soundName){
-  let audio = new Audio(`./src/sounds/${soundName}.mp3`)
+function playVictorySound() {
+  let audio = new Audio(`src/sounds/victory.mp3`);
   audio.play();
 }
-
