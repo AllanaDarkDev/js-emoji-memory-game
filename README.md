@@ -4,7 +4,7 @@ Bem-vindo(a) ao Jogo da Memória de Undertale! Aqui você poderá mergulhar no i
 
 ## ℹ️ Como Jogar
 
-1. Acesse o [link do jogo da memória de Undertale]([https://allanadarkdev.github.io/js-emoji-memory-game/]) para iniciar o jogo.
+1. Acesse o [link do jogo da memória de Undertale](https://allanadarkdev.github.io/js-emoji-memory-game/) para iniciar o jogo.
 2. Ao adentrar o mundo de Undertale, você irá se deparar com um tabuleiro de cartas viradas para baixo.
 3. Seu objetivo é encontrar os pares de emojis correspondentes, inspirados nos personagens e elementos cativantes de Undertale.
 4. Clique em duas cartas para revelar os emojis. Caso os emojis sejam iguais, as cartas permanecerão viradas para cima. Se não forem iguais, as cartas serão viradas novamente após um breve instante.
